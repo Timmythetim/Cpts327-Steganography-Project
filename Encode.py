@@ -5,7 +5,7 @@ import numpy
 
 # image = img.imread("keys.png")
 
-array = tf.imread("keys.tiff")
+array = tf.imread("test.tiff")
 file = open("Message.txt", "r")
 message = file.read()
 message += "0000000000000000"
@@ -37,4 +37,4 @@ while m < len(message):
             y = 0
             z = 0
     m += 1
-tf.imwrite("keysencoded.tiff",array)
+tf.imwrite("testencoded.tiff",array)

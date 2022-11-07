@@ -7,7 +7,7 @@ y = 0
 z = 0
 m = 0
 
-array = tf.imread("keysencoded.tiff")
+array = tf.imread("testencoded.tiff")
 
 delimeter = "1111111111111111"
 
