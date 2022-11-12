@@ -1,1 +1,1 @@
-This string should test my encoding method
+This is a test message to test my encoding!
