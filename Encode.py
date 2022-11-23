@@ -3,6 +3,7 @@ import matplotlib.image as img
 import tifffile as tf
 import magic
 from bitstring import BitArray
+from cryptography.fernet import Fernet
 # image = img.imread("keys.png")
 stringpic = input("Please enter local file path of image to encode\n")
 string = input("Please enter local file path of file to embed, any file type is acceptable\n")
@@ -10,10 +11,16 @@ length = 0
 # try:
 if "text" in magic.from_file(string,mime=True):
     file = open(string, "r")
-
+    keyfile = open("secretkey.txt", "r")
     array = tf.imread(stringpic)
 
     plaintext = file.read()
+    key = keyfile.read()
+    key = bytes(key,"utf-8")
+    fernet = Fernet(key)
+    plaintext = fernet.encrypt(plaintext.encode())
+    plaintext = plaintext.decode("utf-8")
+    print(plaintext)
     length = len(plaintext)
     message = '{:032b}'.format(length)
     print(message)
@@ -56,11 +63,15 @@ else:
 
     plaintext = file.read()
     length = len(plaintext)
-    print(plaintext[:64])
+    numbers = []
+    print(plaintext[1])
+    for x in plaintext:
+        numbers.append(x)
+    print(numbers[:16])
 
     message = '{:032b}'.format(length)
-    for x in range(0,len(plaintext)):
-        temp = '{:08b}'.format(plaintext[x])
+    for x in range(0,len(numbers)):
+        temp = '{:08b}'.format(numbers[x])
         message += temp
     x = 0
     y = 0
@@ -90,7 +101,5 @@ else:
         m += 1
     if x != len(array):
         tf.imwrite("testencoded.tiff",array)
-        print(message[:32])
-        print(message)
 # # except:
 # #     print("An error has occurred, check your file names!")

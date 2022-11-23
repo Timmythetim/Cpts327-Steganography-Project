@@ -1,1 +1,1 @@
-This is a test message to test my encoding!
+Hopefully this message gets encrypted!

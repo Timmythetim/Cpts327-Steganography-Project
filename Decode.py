@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import matplotlib.image as img
 import tifffile as tf
+from cryptography.fernet import Fernet
 
 x = 0
 y = 0
@@ -60,5 +61,9 @@ while x+8 < len(message):
     x += 8
 
 file = open("output", "w")
-file.write(finalmessage)
-print(finalmessage)
+keyfile = open("secretkey.txt", "r")
+key = keyfile.read()
+fernet = Fernet(key.encode("utf-8"))
+decMessage = fernet.decrypt(finalmessage.encode("utf-8")).decode()
+file.write(decMessage)
+print(decMessage)
