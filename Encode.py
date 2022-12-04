@@ -55,7 +55,7 @@ if "text" in magic.from_file(string,mime=True):
                 y = 0
                 z = 0
         m += 1
-    tf.imwrite("testencoded.tiff",array)
+    tf.imwrite("encoded.tiff",array)
 else:
     file = open(string, "br")
 

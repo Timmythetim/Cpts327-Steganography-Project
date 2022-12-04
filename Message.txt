@@ -1,1 +1,9 @@
-Hopefully this message gets encrypted!
+This is a pretend secret message. You may put whatever you would like here. In a real situation you could put any text secrets here, locations, information, or any sort of secret!
+      _.-'''''-._
+    .'  _     _  '.
+   /   (_)   (_)   \
+  |  ,           ,  |
+  |  \`.       .`/  |
+   \  '.`'""'"`.'  /
+    '.  `'---'`  .'
+      '-._____.-'
